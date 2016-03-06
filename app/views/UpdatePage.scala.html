@@ -1,0 +1,38 @@
+
+@(tasks: Task, taskForm: Form[Task])
+
+@import helper._
+
+@main("Todo list") {
+    
+   
+    
+    <h2>Update User Details</h2>
+    
+    @form(routes.Application.UpdateInfo(tasks.id)) {
+       
+@helper.input(taskForm("label")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.label>
+} 
+@helper.input(taskForm("phone")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.phone>
+}
+@helper.input(taskForm("email")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.email>
+}
+@helper.input(taskForm("address")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.address>
+}
+@helper.input(taskForm("sex")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.sex>
+}
+@helper.input(taskForm("age")) { (id, name, value, args) =>
+  <input type="text" name="@name" id="@id" @toHtmlArgs(args) value =@tasks.age>
+}
+
+        
+        <input type="submit" value="Update">
+        
+    }
+    
+}

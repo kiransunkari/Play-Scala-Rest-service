@@ -1,0 +1,27 @@
+@(tasks: List[Task],GetUserForm:Form[Email])
+
+@import helper._
+
+@main("Todo list") {
+    
+    <h1>@tasks.size  Users Found</h1>
+    
+    <ul>
+        @tasks.map { task =>
+            <li>
+                @task.label
+                
+            </li>
+        }
+    </ul>
+    
+    <h2>Get UserDetails By Mail</h2>
+    
+    @form(routes.Application.GetUserByEmail){
+        
+		@inputText(GetUserForm("email"))    
+        <input type="submit" value="GetDetailsByMail">
+        
+    }
+    
+}

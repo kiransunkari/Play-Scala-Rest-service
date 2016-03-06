@@ -1,0 +1,48 @@
+@(tasks: List[Task], taskForm:Form[Task])
+
+@import helper._
+
+@main("Todo list") {
+    
+	 
+	 
+    <h1>@tasks.size users Found</h1>
+    
+	<table  style="width:1200,border: 1px solid black;" >
+	<tr><td  style="width:20%">Name</td> <td  style="width:15%"> Phone</td> <td  style="width:20%"> Email </td> <td  style="width:20%"> address </td> <td style=idth="20%"> sex</td><td>age </td></tr>
+        @tasks.map { task =>
+            <tr>
+               <td  style="width:20%"> @task.label </td>  <td  style="width:20%" >  @task.phone  </td> <td  style="width:20%">@task.email </td><td  style="width:10%">@task.address </td> <td  style="width:20%"> @task.sex</td><td>@task.age </td>
+			   
+			   <td> @form(routes.Application.UpdateUserDetails(task.id)) {
+                    <input type="submit" value="UpDate">
+                }</td>
+            </tr>
+        }
+    </table>
+    
+    <h2>Add a new User</h2>
+    
+    @form(routes.Application.newTask) {
+        
+        @inputText(taskForm("label")) 
+		
+		
+		 @inputText(taskForm("phone"))
+
+		
+		@inputText(taskForm("email")) 
+		
+		
+		@inputText(taskForm("address"))
+		
+		@inputText(taskForm("sex"))
+		
+		
+		@inputText(taskForm("age"))
+        
+        <input type="submit" value="Create">
+        
+    }
+    
+}

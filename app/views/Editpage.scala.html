@@ -1,0 +1,33 @@
+@(tasks: List[Task],GetNameForm:Form[Details])
+
+@import helper._
+
+@main("Todo list") {
+    
+    <h1>@tasks.size  Users Found</h1>
+    
+    <ul>
+        @tasks.map { task =>
+            <li>
+                @task.label
+                
+               
+            </li>
+        }
+    </ul>
+    
+    <h2>Get UserName By Name</h2>
+    
+    @form(routes.Application.GetNameById){
+        
+		
+		@inputText(GetNameForm("sex"))
+		
+        @inputText(GetNameForm("age")) 
+		
+        
+        <input type="submit" value="GetDetailsByName">
+        
+    }
+    
+}
